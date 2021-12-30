@@ -1,0 +1,739 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #fff;
+    font-weight: 300;
+    line-height: 1.75em;
+    color: #888;
+}
+
+/* ------------------------------------------------------------------------ */
+/* 데스크톱 (1206px ~ 2000px) */
+@media screen and (min-width: 1206px) and (max-width: 2000px) {
+    /* 메뉴바 */
+    #header { 
+        display: block;
+        width: 300px; 
+        background: #222629;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        text-align: right;
+    }
+    #logo {
+        position: relative;
+        margin: 1.75em 1.5em 1.5em 1.5em;
+        padding-top: 1.5em;
+        min-height: 48px;
+    }
+    #logo img {
+        width: 3em;
+        position: absolute;
+		left: 0;
+		top: 0.5em;
+    }
+    #logo h1 {
+        position: relative;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.8em;
+        line-height: 1em;
+    }
+    #nav ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    #nav ul li {
+        padding: 0.5em 0;
+    }
+    #nav ul li a {
+        display: block;
+        padding: 0.5em 2em 0.5em 1.5em;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+    }
+    #nav ul li a span {
+        position: relative;
+        display: block;
+        font-size: 1.1em;
+    }
+    #nav ul li a:hover {
+        background: rgba(0, 0, 0, 0.15);
+        color: #fff;
+    }
+    #space {
+        height: 15em;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 메인 컨텐츠 */
+    #main {
+        margin-left: 300px;
+    }
+    #main > #moreicon {
+        display: none;
+    }
+    #main > section {
+        display: block;
+        margin: 0;
+        overflow: hidden;
+        text-align: center;
+        padding: 4em 0;
+    }
+    /* 현재 날씨 */
+    #main > section.one {
+        color: seashell;
+        background: #81918E;
+        padding: 5em 0;
+    }
+    .container {
+        margin: 0 auto;
+        max-width: 100%;
+        width: 1400px;
+    }
+    header {
+        margin: 0 0 4em 0;
+        font-size: 170%;
+    }
+    #moreicon img {
+        width: 70px;
+    }
+    #footer {
+        margin: 2em 0 0 0;
+    }
+    #citydate {
+        height: 50px;
+    }
+    #city { 
+        font-size: 2.5em;
+        padding-left: 150px;
+        float: left;
+    }
+    #date {
+        font-size: 1.3em;
+        padding-right: 80px;
+        float: right;
+        padding-top: 0.5em;
+    }
+    #nowtemp {
+        padding-top: 2.3em;
+        font-size: 4em;
+    }
+    #nowminmaxtemp {
+        padding-top: 1.5em;
+        font-size: 1.2em;
+    }
+    #weatherbox {
+        padding-top: 2em;
+        font-size: 1.5em;
+    }
+    #main > section.two {
+        background: #f5fafa;
+    }
+    #main > section.three {
+        background: #ecf1f1;
+    }
+    #main > section.four {
+        background: #e8edec;
+    }
+    /* 시간대별 날씨 */
+    #main > section.one > .container > footer > div {
+        height: 10em;
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.1em;
+    }
+    #main > section.one > .container > footer > div > span {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #main > section.one > .container > footer > div > span > span {
+        float: left;
+        padding: 1em 1em 1em 1em;
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 기타정보 */
+    #main > section.two > .container > div {
+        display: table;
+        width: 80%;
+        margin: 0 auto;
+    }
+    #main > section.two > .container > div > .row {
+        height: 25em;
+        display: table-cell;
+    }
+    #main > section.two > .container > div > .row > .otherInfo {
+        display: inline-block;
+        width: 19.5em;
+        padding: 1.5em 0;
+        border-style: solid;
+        border-color: #222629;
+        border-width: 0 0 1px 0;
+    }
+    #main > section.two > .container > div > .row > .otherInfo > .name {
+        text-align: left;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        font-weight: 600;
+        font-size: 110%;
+    }
+    #main > section.two > .container > div > .row > .otherInfo > .value {
+        height: 10px;
+        vertical-align: baseline;
+        padding: 0.8em 2em 0.8em 0;
+        font-size: 160%;
+        float: right;
+        
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* 일주일 날씨 */
+    #main > section.three > .container > .weekly {
+        width: 70%;
+        height: 47em;
+        margin: 0 auto;
+    }
+    #main > section.three > .container > .weekly > table {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #main > section.three > .container > .weekly > table > thead {
+        font-size: 1.1em;
+        background: rgb(212, 212, 212);
+    }
+    #main > section.three > .container > .weekly > table > tbody {
+        background: rgb(255, 255, 255);
+    }
+    #main > section.three > .container > .weekly .day, .w-icon, .w-rain, .w-weather, .w-wind, .w-humi, .w-feeltemp, .w-minmaxtemp {
+        width: 2em;
+        height: 3em;
+    }
+    #main > section.three > .container > .weekly > table .w-icon > img {
+        width: 5em;
+    }
+
+    /*-------------------------------------------------------------------*/
+    /*footer*/
+    #footer {
+        margin-top: 0;
+        margin-left: 300px;
+        text-align: center;
+        background-color: #dce3e2;
+        padding: 3em 0 4em 0;
+        font-size: 1.1em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 태블릿 (768px ~ 1205px) */
+@media screen and (min-width: 768px) and (max-width: 1205px) {
+    #header { 
+        display: block;
+        width: 300px; 
+        background: #222629;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        text-align: right;
+    }
+    #logo {
+        position: relative;
+        margin: 1.75em 1.5em 1.5em 1.5em;
+        padding-top: 1.5em;
+        min-height: 48px;
+
+    }
+    #logo img {
+        width: 3em;
+        position: absolute;
+		left: 0;
+		top: 0.5em;
+    }
+    #logo h1 {
+        position: relative;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.8em;
+        line-height: 1em;
+    }
+    #nav ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    #nav ul li {
+        padding: 0.5em 0;
+    }
+    #nav ul li a {
+        display: block;
+        padding: 0.5em 2em 0.5em 1.5em;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+    }
+    #nav ul li a span {
+        position: relative;
+        display: block;
+        font-size: 1.1em;
+    }
+    #nav ul li a:hover {
+        background: rgba(0, 0, 0, 0.15);
+        color: #fff;
+    }
+    #space {
+        height: 15em;
+    }
+    h2 {
+        font-size: 1.3em;
+        letter-spacing: 0;
+        font-weight: 700;
+    }
+
+
+    /* -------------------------------------------------------------------------- */
+    /* 메인 컨텐츠 */
+    #main {
+        margin-left: 300px;
+    }
+    #main > #moreicon {
+        display: none;
+    }
+    #main > section {
+        display: block;
+        margin: 0;
+        overflow: hidden;
+        text-align: center;
+        padding: 4em 0;
+    }
+    /* 현재 날씨 */
+    #main > section.one {
+        color: seashell;
+        background: #81918E;
+        padding: 5em 0;
+    }
+    .container {
+        margin: 0 auto;
+        max-width: 100%;
+        width: 1400px;
+    }
+    header {
+        margin: 0 0 4em 0;
+        font-size: 170%;
+    }
+    #moreicon img {
+        width: 70px;
+    }
+    #footer {
+        margin: 2em 0 0 0;
+    }
+    #citydate {
+        height: 50px;
+    }
+    #city { 
+        font-size: 2em;
+        padding-left: 1.7em;
+        float: left;
+    }
+    #date {
+        font-size: 1.1em;
+        padding-right: 80px;
+        float: right;
+        padding-top: 0.5em;
+    }
+    #nowtemp {
+        padding-top: 2.3em;
+        font-size: 3em;
+    }
+    #nowminmaxtemp {
+        padding-top: 1.5em;
+        font-size: 1em;
+    }
+    #weatherbox {
+        padding-top: 2em;
+        font-size: 1.3em;
+    }
+    #main > section.two {
+        background: #f5fafa;
+    }
+    #main > section.three {
+        background: #ecf1f1;
+    }
+    #main > section.four {
+        background: #e8edec;
+    }
+    /* 시간대별 날씨 */
+    #main > section.one > .container > footer > div {
+        height: 10em;
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.1em;
+    }
+    #main > section.one > .container > footer > div > span {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #main > section.one > .container > footer > div > span > span {
+        float: left;
+        padding: 1em 1em 1em 1em;
+    }
+    footer > div > span > #hour1, #hour3, #hour5, #hour7 {
+        display: none;
+    }
+
+
+    /* ----------------------------------------------------------------------- */
+    /* 기타정보 */
+    #main > section.two > .container > div {
+        display: table;
+        width: 80%;
+        margin: 0 auto;
+    }
+    #main > section.two > .container > div > .row {
+        height: 25em;
+        display: table-cell;
+    }
+    #main > section.two > .container > div > .row > .otherInfo {
+        display: inline-block;
+        width: 12em;
+        padding: 1.5em 0;
+        border-style: solid;
+        border-color: #222629;
+        border-width: 0 0 1px 0;
+    }
+    #main > section.two > .container > div > .row > .otherInfo > .name {
+        text-align: left;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        font-weight: 600;
+        font-size: 110%;
+    }
+    #main > section.two > .container > div > .row > .otherInfo > .value {
+        height: 10px;
+        vertical-align: baseline;
+        padding: 0.8em 2em 0.8em 0;
+        font-size: 160%;
+        float: right;
+        
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* 일주일 날씨 */
+    #main > section.three > .container > .weekly {
+        width: 70%;
+        height: 47em;
+        margin: 0 auto;
+    }
+    #main > section.three > .container > .weekly > table {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #main > section.three > .container > .weekly > table > thead {
+        font-size: 1.1em;
+        background: rgb(212, 212, 212);
+    }
+    #main > section.three > .container > .weekly > table > tbody {
+        background: rgb(255, 255, 255);
+    }
+    #main > section.three > .container > .weekly .day, .w-icon, .w-rain, .w-weather, .w-wind, .w-humi, .w-feeltemp, .w-minmaxtemp {
+        width: 2em;
+        height: 3em;
+    }
+    #main > section.three > .container > .weekly > table .w-icon > img {
+        width: 5em;
+    }
+    .weekly .w-wind, .w-humi, .w-feeltemp {
+        display: none;
+    }
+
+    /*-------------------------------------------------------------------*/
+    /*footer*/
+    #footer {
+        margin-top: 0;
+        margin-left: 300px;
+        text-align: center;
+        background-color: #dce3e2;
+        padding: 2.5em 0 2.5em 0;
+        font-size: 1.1em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 스마트폰 ( ~ 767px) */
+@media screen and (max-width: 767px) {
+    /* 메뉴바 */
+    #header { 
+        display: none;
+        width: 300px; 
+        background: #222629;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        text-align: right;
+    }
+    #logo {
+        position: relative;
+        margin: 1.75em 1.5em 1.5em 1.5em;
+        padding-top: 1.5em;
+        min-height: 48px;
+    }
+    #logo img {
+        width: 3em;
+        position: absolute;
+		left: 0;
+		top: 0.5em;
+    }
+    #logo h1 {
+        position: relative;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.8em;
+        line-height: 1em;
+    }
+    #nav ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    #nav ul li {
+        padding: 0.5em 0;
+    }
+    #nav ul li a {
+        display: block;
+        padding: 0.5em 2em 0.5em 1.5em;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+    }
+    #nav ul li a span {
+        position: relative;
+        display: block;
+        font-size: 1.1em;
+    }
+    #nav ul li a:hover {
+        background: rgba(0, 0, 0, 0.15);
+        color: #fff;
+    }
+    #space {
+        height: 7em;
+    }
+    h2 {
+        font-size: 1.2em;
+        letter-spacing: 0;
+        font-weight: 300;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 메인 컨텐츠 */
+    #main {
+        margin-left: 0px;
+    }
+    #main > #moreicon {
+        display: block;
+        height: 2em;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-left: 0;
+    }
+    #main > section {
+        display: block;
+        margin: 0;
+        overflow: hidden;
+        text-align: center;
+        padding: 4em 0;
+    }
+    /* 현재 날씨 */
+    #main > section.one {
+        color: seashell;
+        background: #81918E;
+        padding: 5em 0;
+    }
+    .container {
+        margin: 0 auto;
+        max-width: 100%;
+        width: 1400px;
+    }
+    header {
+        margin: 0 0 2em 0;
+        font-size: 170%;
+    }
+    #moreicon img {
+        width: 70px;
+    }
+    #footer {
+        margin-left: 0;
+    }
+    #citydate {
+        height: 50px;
+    }
+    #city { 
+        font-size: 1.2em;
+        float: left;
+        padding-left: 1em;
+    }
+    #date {
+        font-size: 0.8em;
+        padding-right: 1em;
+        float: right;
+        padding-top: 0.5em;
+    }
+    #nowtemp {
+        padding-top: 2.5em;
+        font-size: 2.3em;
+    }
+    #nowminmaxtemp {
+        padding-top: 1.5em;
+        font-size: 0.9em;
+    }
+    #weatherbox {
+        padding-top: 2em;
+        font-size: 1em;
+    }
+    #main > section.two {
+        background: #f5fafa;
+    }
+    #main > section.three {
+        background: #ecf1f1;
+    }
+    #main > section.four {
+        background: #e8edec;
+    }
+    /* 시간대별 날씨 */
+    #main > section.one > .container > footer > div {
+        height: 10em;
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.1em;
+    }
+    #main > section.one > .container > footer > div > span {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer > div {
+        width: 90%;
+    }
+    footer > div > span > #hour1, #hour3, #hour5, #hour7 {
+        display: none;
+    }
+    .h-icon img {
+        width: 3.2em;
+    }
+    .h_temp {
+        font-size: 0.9em;
+    }
+    #main > section.one > .container > footer > div > span > span {
+        float: left;
+        padding: 1em 1em 1em 1em;
+    }
+
+
+    /* ----------------------------------------------------------------------- */
+    /* 기타정보 */
+    #main > section.two > .container > div {
+        display: table;
+        width: 80%;
+        margin: 0 auto;
+    }
+    #main > section.two > .container > div > .row {
+        display: table-cell;
+        height: 25em;
+        margin: 0 auto;
+    }
+    #main > section.two > .container > div > .row > .otherInfo {
+        display: inline-block;
+        width: 10em;
+        padding: 1.5em 0;
+        border-style: solid;
+        border-color: #222629;
+        border-width: 0 0 1px 0;
+    }
+    #main > section.two > .container > div > .row > .otherInfo > .name {
+        text-align: left;
+        padding-bottom: 1em;
+        padding-left: 1em;
+        font-weight: 600;
+        font-size: 110%;
+    }
+    #main > section.two > .container > div > .row > .otherInfo > .value {
+        height: 10px;
+        vertical-align: baseline;
+        padding: 0.8em 2em 0.8em 0;
+        font-size: 160%;
+        float: right;
+    }
+
+
+    /* ------------------------------------------------------------------ */
+    /* 일주일 날씨 */
+    #main > section.three > .container > .weekly {
+        width: 70%;
+        height: 47em;
+        margin: 0 auto;
+    }
+    #main > section.three > .container > .weekly > table {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #main > section.three > .container > .weekly > table > thead {
+        font-size: 1.1em;
+        background: rgb(212, 212, 212);
+    }
+    #main > section.three > .container > .weekly > table > tbody {
+        background: rgb(255, 255, 255);
+    }
+    #main > section.three > .container > .weekly .day, .w-icon, .w-rain, .w-weather, .w-wind, .w-humi, .w-feeltemp, .w-minmaxtemp {
+        width: 2em;
+        height: 3em;
+    }
+    #main > section.three > .container > .weekly > table .w-icon > img {
+        width: 5em;
+    }
+    .weekly .w-wind, .w-humi, .w-feeltemp, .w-minmaxtemp {
+        display: none;
+    }
+
+
+    /*-------------------------------------------------------------------*/
+    /*footer*/
+    #footer {
+        margin-top: 0;
+        margin-left: 0;
+        text-align: center;
+        background-color: #dce3e2;
+        padding: 2.5em 0 2.5em 0;
+        font-size: 1.1em;
+    }
+}
+

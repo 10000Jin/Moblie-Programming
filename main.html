@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>오늘의 날씨는?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" ></script>
+    <link rel="stylesheet" href="main.css" />
+    <script src="javascript/getCity.js"></script>
+    <script src="javascript/currentweather.js"></script>
+    <script src="javascript/weeklyweather.js"></script>
+    <script src="javascript/shownav.js"></script>
+    <script src="javascript/resize.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <div class="top">
+            <!-- Logo -->
+            <div id="logo"> 
+                <img src="images/umbrella.png">
+                <h1>오늘의 날씨는?</h1>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#current" id="current-link"><span class="icon solid fa-home">오늘의 날씨</span></a></li>
+                    <li><a href="#moreInfo" id="moreInfo-link"><span class="icon solid fa-th">기타 정보</span></a></li>
+                    <li><a href="#weeklyweather" id="weeklyweather-link"><span class="icon solid fa-user">일주일 날씨</span></a></li>
+                </ul>
+                <div id="space"></div>
+                <ul>
+                    <li><a href="main.html?city=Cheonan" id=""><span class="">천안</span></a></li>
+                    <li><a href="main.html?city=Seoul" id=""><span class="">서울</span></a></li>
+                    <li><a href="main.html?city=Busan" id=""><span class="">부산</span></a></li>
+                    <li><a href="main.html?city=Daejeon" id=""><span class="">대전</span></a></li>
+                    <li><a href="main.html?city=Gwangju" id=""><span class="">광주</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div id="main">
+        <div id="moreicon">
+            <span><a href="javascript:doDisplay();" ><img src="images/moreicon.jpg"></a></span>
+        </div>
+        <!-- 현재 날씨 -->
+        <section id="current" class="one">
+            <div class="container">
+                <header>
+                    <!-- 지역명, 날짜, 현재온도, 최저, 최고 기온, 날씨(비, 맑음)  -->
+                    <div id="citydate">
+                        <span id="city">도시</span>
+                        <span id="date">날짜</span>
+                    </div>
+                    <div id="nowtemp">
+                        <span id="temp"> C</span>
+                    </div>
+                    <div id="nowminmaxtemp">
+                        <span id="nowmin">최저: </span>
+                        <span>/</span>
+                        <span id="nowmax">최고: </span>
+                    </div>
+                    <div id="weatherbox">
+                        <span id="weather">날씨</span>
+                    </div>
+                </header>
+
+                <footer>
+                    <!-- 시간별 날씨 변화 / (시간, 강수량, 아이콘, 온도) -->
+                    <!-- 데스크탑: 1시간 단위 8개, 스마트폰 2시간 단위 4개 -->
+                    <div><span>
+                        <span id="hour1">
+                            <div id="h-time1" class="time">시</div>
+                            <div id="h-rain1" class="rain">%</div>
+                            <div id="h-icon1" class="h-icon"></div>
+                            <div id="h-temp1" class="h_temp">C</div>
+                        </span>
+                        <span id="hour2">
+                            <div id="h-time2" class="time">시</div>
+                            <div id="h-rain2" class="rain">%</div>
+                            <div id="h-icon2" class="h-icon"></div>
+                            <div id="h-temp2" class="h_temp">C</div>
+                        </span>
+                        <span id="hour3">
+                            <div id="h-time3" class="time">시</div>
+                            <div id="h-rain3" class="rain">%</div>
+                            <div id="h-icon3" class="h-icon"></div>
+                            <div id="h-temp3" class="h_temp">C</div>
+                        </span>
+                        <span id="hour4">
+                            <div id="h-time4" class="time">시</div>
+                            <div id="h-rain4" class="rain">%</div>
+                            <div id="h-icon4" class="h-icon"></div>
+                            <div id="h-temp4" class="h_temp">C</div>
+                        </span>
+                        <span id="hour5">
+                            <div id="h-time5" class="time">시</div>
+                            <div id="h-rain5" class="rain">%</div>
+                            <div id="h-icon5" class="h-icon"></div>
+                            <div id="h-temp5" class="h_temp">C</div>
+                        </span>
+                        <span id="hour6">
+                            <div id="h-time6" class="time">시</div>
+                            <div id="h-rain6" class="rain">%</div>
+                            <div id="h-icon6" class="h-icon"></div>
+                            <div id="h-temp6" class="h_temp">C</div>
+                        </span>
+                        <span id="hour7">
+                            <div id="h-time7" class="time">시</div>
+                            <div id="h-rain7" class="rain">%</div>
+                            <div id="h-icon7" class="h-icon"></div>
+                            <div id="h-temp7" class="h_temp">C</div>
+                        </span>
+                        <span id="hour8">
+                            <div id="h-time8" class="time">시</div>
+                            <div id="h-rain8" class="rain">%</div>
+                            <div id="h-icon8" class="h-icon"></div>
+                            <div id="h-temp8" class="h_temp">C</div>
+                        </span>
+                    </span></div>      
+                </footer>
+            </div>
+        </section>
+
+        <!-- 기타 정보 -->
+        <section id="moreInfo" class="two">
+            <div class="container">
+                <header>
+                    <h2>기타 정보</h2>
+                </header>
+                <div>
+                <div class="row">
+                    <!-- 일출, 일몰, 적설량, 습도, 풍향, 체감 온도, 강수량, 기압, 가시거리 -->
+                    <span class="otherInfo">         
+                        <div class="name">일출</div>
+                        <div id="sunrise" class="value"></div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">일몰</div>
+                        <div id="sunset" class="value"></div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">습도</div>
+                        <div id="hum" class="value"> %</div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">풍속</div>
+                        <div id="wind" class="value"> m/s</div>
+                    </span>
+                    <!-- API에 강수량, 적설량에 대한 정보가 없어 임의로 넣음 -->
+                    <span class="otherInfo">         
+                        <div class="name">강수량</div>
+                        <div id="rain" class="value">1 cm</div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">적설량</div>
+                        <div id="snow" class="value">3 cm</div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">기압</div>
+                        <div id="pressure" class="value"> hPa</div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">체감 온도</div>
+                        <div id="felltemp" class="value"> C</div>
+                    </span>
+                    <span class="otherInfo">         
+                        <div class="name">가시거리</div>
+                        <div id="visual" class="value"> m</div>
+                    </span>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- 일주일 날씨 -->
+        <section id="weeklyweather" class="three">
+            <div class="container">
+                <header>
+                    <h2>일주일 날씨</h2>
+                </header>
+                <!-- 데스크톱: 요일, 아이콘, 강수확률, 날씨(비, 맑음), 풍향, 습도, 체감온도(낮/밤), 최저최고 기온 -->
+                <!-- 태블릿: 요일, 아이콘, 강수확률, 날씨, 최저최고 기온  -->
+                <!-- 모바일: 요일, 아이콘, 강수확률, 날씨 -->
+                <div class="weekly">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th class="day">요일</th>
+                                <th class="w-icon">아이콘</th>
+                                <th class="w-rain">강수확률</th>
+                                <th class="w-weather">날씨</th>
+                                <th class="w-wind">바람</th>
+                                <th class="w-humi">습도</th>
+                                <th class="w-feeltemp">체감온도<br>(낮/밤, C)</th>
+                                <th class="w-minmaxtemp">최저/최고<br>기온(C)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="w-day1" class="day">요일</td>
+                                <td id="w-icon1" class="w-icon"></td>
+                                <td id="w-rain1" class="w-rain">%</td>
+                                <td id="w-weather1" class="w-weather">날씨</td>
+                                <td id="w-wind1" class="w-wind">m/s</td>
+                                <td id="w-humi1" class="w-humi">%</td>
+                                <td id="w-feeltemp1" class="w-feeltemp"> / </td>
+                                <td id="w-temp1" class="w-minmaxtemp"> / </td>
+                            </tr>
+                            <tr>
+                                <td id="w-day2" class="day">요일</td>
+                                <td id="w-icon2" class="w-icon"></td>
+                                <td id="w-rain2" class="w-rain">%</td>
+                                <td id="w-weather2" class="w-weather">날씨</td>
+                                <td id="w-wind2" class="w-wind">m/s</td>
+                                <td id="w-humi2" class="w-humi">%</td>
+                                <td id="w-feeltemp2" class="w-feeltemp"> / </td>
+                                <td id="w-temp2" class="w-minmaxtemp"> / </td>
+                            </tr>
+                            <tr>
+                                <td id="w-day3" class="day">요일</td>
+                                <td id="w-icon3" class="w-icon"></td>
+                                <td id="w-rain3" class="w-rain">%</td>
+                                <td id="w-weather3" class="w-weather">날씨</td>
+                                <td id="w-wind3" class="w-wind">m/s</td>
+                                <td id="w-humi3" class="w-humi">%</td>
+                                <td id="w-feeltemp3" class="w-feeltemp"> / </td>
+                                <td id="w-temp3" class="w-minmaxtemp"> / </td>
+                            </tr>
+                            <tr>
+                                <td id="w-day4" class="day">요일</td>
+                                <td id="w-icon4" class="w-icon"></td>
+                                <td id="w-rain4" class="w-rain">%</td>
+                                <td id="w-weather4" class="w-weather">날씨</td>
+                                <td id="w-wind4" class="w-wind">m/s</td>
+                                <td id="w-humi4" class="w-humi">%</td>
+                                <td id="w-feeltemp4" class="w-feeltemp"> / </td>
+                                <td id="w-temp4" class="w-minmaxtemp"> / </td>
+                            </tr>
+                            <tr>
+                                <td id="w-day5" class="day">요일</td>
+                                <td id="w-icon5" class="w-icon"></td>
+                                <td id="w-rain5" class="w-rain">%</td>
+                                <td id="w-weather5" class="w-weather">날씨</td>
+                                <td id="w-wind5" class="w-wind">m/s</td>
+                                <td id="w-humi5" class="w-humi">%</td>
+                                <td id="w-feeltemp5" class="w-feeltemp"> / </td>
+                                <td id="w-temp5" class="w-minmaxtemp"> / </td>
+                            </tr>
+                            <tr>
+                                <td id="w-day6" class="day">요일</td>
+                                <td id="w-icon6" class="w-icon"></td>
+                                <td id="w-rain6" class="w-rain">%</td>
+                                <td id="w-weather6" class="w-weather">날씨</td>
+                                <td id="w-wind6" class="w-wind">m/s</td>
+                                <td id="w-humi6" class="w-humi">%</td>
+                                <td id="w-feeltemp6" class="w-feeltemp"> / </td>
+                                <td id="w-temp6" class="w-minmaxtemp"> / </td>
+                            </tr>
+                            <tr>
+                                <td id="w-day7" class="day">요일</td>
+                                <td id="w-icon7" class="w-icon"></td>
+                                <td id="w-rain7" class="w-rain">%</td>
+                                <td id="w-weather7" class="w-weather">날씨</td>
+                                <td id="w-wind7" class="w-wind">m/s</td>
+                                <td id="w-humi7" class="w-humi">%</td>
+                                <td id="w-feeltemp7" class="w-feeltemp"> / </td>
+                                <td id="w-temp7" class="w-minmaxtemp"> / </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- 내 정보 -->
+            <ul class="myInfo">
+                <li>KoreaTech</li>
+                <li>2017136130 최만진</a></li>
+                <li>wnsqlm421@koreatech.ac.kr</li>
+            </ul>
+    </div>
+</body>
+</html>
